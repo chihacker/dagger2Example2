@@ -12,19 +12,24 @@ public class CafeApp {
             CafeInfo cafeInfo2 = cafeComponent.cafeInfo();
             System.out.println("Singleton scope CafeInfo is equal : " + cafeInfo1.equals(cafeInfo2));
 
-            //MakerScope
+
+
+            //CoffeeScope
             CoffeeComponent coffeeComponent1 = cafeComponent.coffeeComponent().build();
-            CoffeeMaker coffeeMaker1 = coffeeComponent1.coffeeMaker(); //MakerScopeMethod
-            CoffeeMaker coffeeMaker2 = coffeeComponent1.coffeeMaker(); //MakerScopeMethod
-            System.out.println("Maker scope / same component coffeeMaker is equal : " + coffeeMaker1.equals(coffeeMaker2));
+            CoffeeComponent coffeeComponent2 = cafeComponent.coffeeComponent().build();
+            CoffeeMaker coffeeMaker1 = coffeeComponent1.coffeeMaker();
+            CoffeeMaker coffeeMaker2 = coffeeComponent1.coffeeMaker();
+            System.out.println("CoffeeScope / same component coffeeMaker is equal : " + coffeeMaker1.equals(coffeeMaker2));
+            CoffeeMaker coffeeMaker3 = coffeeComponent2.coffeeMaker(); //MakerScopeMethod
+            System.out.println("CoffeeScope / different component coffeeMaker is equal : " + coffeeMaker1.equals(coffeeMaker3));
+
+            //Non-scope
             CoffeeBean coffeeBean1 = coffeeComponent1.coffeeBean();
             CoffeeBean coffeeBean2 = coffeeComponent1.coffeeBean();
             System.out.println("Non-scoped coffeebean is equal : " + coffeeBean1.equals(coffeeBean2));
 
 
-            CoffeeComponent coffeeComponent2 = cafeComponent.coffeeComponent().build();
-            CoffeeMaker coffeeMaker3 = coffeeComponent2.coffeeMaker(); //MakerScopeMethod
-            System.out.println("Maker scope / different component coffeeMaker is equal : " + coffeeMaker1.equals(coffeeMaker3));
+
 
             //Encapsulate
             //바로 CoffeeComponent 를 통해서 커피를 내릴수 없다.

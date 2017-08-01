@@ -22,6 +22,6 @@ public abstract class CoffeeBeanModule {
     @IntoMap
     @StringKey("guatemala")
     abstract CoffeeBean provideGuatemalaBean(GuatemalaBean guatemalaBean);
-    // 타입에 맞춰 생성될 객체가 명확할 때는 GuatemalaBean 처럼 @Provide method 를 제공하지 않아도 @Inject annotation으로도 bind 가능.
+    // EthiopiaBean 처럼 @Provide method 를 제공하지 않아도 @Inject annotation을 이용해 Injectable 한 객체로 정의해도 bind 가능.
 
 }
